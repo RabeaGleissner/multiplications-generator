@@ -8,4 +8,12 @@ class MultiplicationTable
     puts "#{factor1} x #{factor2} = #{result}"
   end
 
+  def generate_multiplications_up_to(number)
+    (0..number).each do |factor1|
+      (0..number).each do |factor2|
+        print_statement(factor1, factor2, multiply(factor1, factor2))
+      end
+    end
+  end
+
 end
