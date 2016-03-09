@@ -1,13 +1,26 @@
 class Ui
-  attr_reader :input
+  attr_reader :input, :output
 
-  def initialize(input)
+  def initialize(input, output)
     @input = input
+    @output = output
   end
 
   def request_number
-    puts "Please enter a number: "
-    input.gets.chomp
+    output.puts "Please enter a number: "
+    get_number
+  end
+
+  def get_number
+    user_input = input.gets.chomp
+    if is_number?(user_input)
+      return user_input.to_i
+    end
+    request_number
+  end
+
+  def is_number?(input)
+    input.upcase == input.downcase
   end
 
 end
