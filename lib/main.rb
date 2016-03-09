@@ -1,6 +1,6 @@
 require_relative 'ui'
-require_relative 'multiplication_table'
+require_relative 'multiplication_generator'
 
-table = MultiplicationTable.new
+generator = MultiplicationGenerator.new
 ui = Ui.new($stdin, $stdout)
-table.generate_multiplications_up_to(ui.request_number)
+generator.generate_multiplications_up_to(ui.request_number)
