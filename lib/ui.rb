@@ -8,7 +8,7 @@ class Ui
   end
 
   def print_multiplications
-    multiplication_generator.generate_multiplications_up_to(request_number).map do |numbers|
+    multiplication_generator.generate_multiplications_up_to(request_number).cycle(1) do |numbers|
       puts "#{numbers[0]} x #{numbers[1]} = #{numbers[2]}"
     end
   end
