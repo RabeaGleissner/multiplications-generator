@@ -1,13 +1,14 @@
 class Ui
-  attr_reader :input, :output
+  attr_reader :input, :output, :multiplication_generator
 
-  def initialize(input, output)
+  def initialize(input, output, multiplication_generator)
     @input = input
     @output = output
+    @multiplication_generator = multiplication_generator
   end
 
-  def print_multiplications(factors_with_products)
-    factors_with_products.map do |numbers|
+  def print_multiplications
+    multiplication_generator.generate_multiplications_up_to(request_number).map do |numbers|
       puts "#{numbers[0]} x #{numbers[1]} = #{numbers[2]}"
     end
   end
