@@ -23,8 +23,12 @@ describe Ui do
     expect(ui.is_number?("n")).to be false
   end
 
+  it "prints multiplication statements" do
+    expect{ui.print_multiplications([[0,0,0], [0,1,0], [0,2,0], [0,3,0], [1,0,0], [1,1,1]])}.to output("0 x 0 = 0\n0 x 1 = 0\n0 x 2 = 0\n0 x 3 = 0\n1 x 0 = 0\n1 x 1 = 1\n").to_stdout
+  end
+
   it "asks again for input if user has not given a number" do
-    allow(ui.input).to receive(:gets).and_return("n")
+    allow(ui.input).to receive(:gets).and_return("n", "2")
     expect(output_stream).to receive(:puts).with("Please enter a number: ")
     ui.get_number
   end

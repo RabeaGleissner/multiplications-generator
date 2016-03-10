@@ -3,4 +3,5 @@ require_relative 'multiplication_generator'
 
 generator = MultiplicationGenerator.new
 ui = Ui.new($stdin, $stdout)
-generator.generate_multiplications_up_to(ui.request_number)
+ar = generator.generate_multiplications_up_to(ui.request_number)
+ui.print_multiplications(ar)
