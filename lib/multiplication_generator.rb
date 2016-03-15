@@ -1,9 +1,5 @@
 class MultiplicationGenerator
 
-  def multiply(factor1, factor2)
-    factor1 * factor2
-  end
-
   def generate_multiplications_up_to(number)
     factors_with_products = []
     (0..number).map do |factor1|
@@ -13,5 +9,10 @@ class MultiplicationGenerator
     end
     factors_with_products
   end
+
+  def multiply(factor1, factor2)
+    factor1 * factor2
+  end
+
 
 end

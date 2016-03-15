@@ -25,11 +25,13 @@ describe Ui do
 
   it "prints multiplication statements" do
     allow(ui.input).to receive(:gets).and_return("1")
-    expect{ui.print_multiplications()}.to output("0 x 0 = 0\n0 x 1 = 0\n1 x 0 = 0\n1 x 1 = 1\n").to_stdout
+    ui.print_multiplications
+    expect(output_stream.string).to end_with("0 x 0 = 0\n0 x 1 = 0\n1 x 0 = 0\n1 x 1 = 1\n")
   end
 
+
   it "asks again for input if user has not given a number" do
-    allow(ui.input).to receive(:gets).and_return("n", "2")
+    allow(ui.input).to receive(:gets).and_return("%", "2")
     expect(output_stream).to receive(:puts).with("Please enter a number: ")
     ui.get_number
   end
